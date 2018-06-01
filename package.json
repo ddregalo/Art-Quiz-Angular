@@ -1,0 +1,11 @@
+{
+  "name": "art_quiz_angular",
+  "version": "1.0.0",
+  "description": "art_quiz_angular",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "danielCampos",
+  "license": "ISC"
+}
