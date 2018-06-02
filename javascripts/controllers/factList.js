@@ -10,6 +10,7 @@
       self.data = artFacts;
       self.activeArtist = {};
       self.changeActiveArtist = changeActiveArtist;
+      self.search = "";
 
       function changeActiveArtist(artist) {
         self.activeArtist = artist;

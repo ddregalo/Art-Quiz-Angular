@@ -21,8 +21,14 @@
         <h2>WHAT YOU KNOW ABOUT ART</h2>
       </div>
       <div ng-controller="factlistCtrl as list">
+        <form class="form-inline well well-sm clearfix">
+          <span class="glyphicon glyphicon-search"></span>
+          <input type="text" placeholder="Search artist..."
+            class="form-control"
+            ng-model="list.search">
+        </form>
         <div class="row">
-          <div class="col-sm-6" ng-repeat="fact in list.data">
+          <div class="col-sm-6" ng-repeat="fact in list.data | filter:list.search">
             <div class="well well-sm">
               <div class="row">
                 <div class="col-md-6">
