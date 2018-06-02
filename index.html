@@ -20,19 +20,20 @@
         <h1>ART QUIZ APP</h1>
         <h2>WHAT YOU KNOW ABOUT ART</h2>
       </div>
-    </div>
-    <div ng-controller="factlistCtrl as list">
-      <div class="row">
-        <div class="col-sm-6" ng-repeat="fact in list.data">
-          <div class="well well-sm">
-            <div class="row">
+      <div ng-controller="factlistCtrl as list">
+        <div class="row">
+          <div class="col-sm-6" ng-repeat="fact in list.data">
+            <div class="well well-sm">
+              <div class="row">
+                <div class="col-md-6">
+                  <img ng-src="{{fact.artwork_img_url}}" class="img-rounded img-responsive">
+              </div>
               <div class="col-md-6">
-                <img ng-src="{{fact.artwork_img_url}}" class="img-rounded img-responsive">
-            </div>
-            <div class="col-md-6">
-              <h4>{{fact.artist}}</h4>
-              <p><strong>Style: </strong>{{fact.artist_description}}</p>
-              <p><a ng-href={{fact.wiki_url}}><strong>Artist Wiki</strong></a></p>
+                <h4>{{fact.artist}}</h4>
+                <p><strong>Style: </strong>{{fact.artist_description}}</p>
+                <p><a ng-href={{fact.wiki_url}}><strong>Artist Wiki</strong></a></p>
+                <button class="btn btn-primary pull-left">LEARN MORE</button>
+              </div>
             </div>
           </div>
         </div>
