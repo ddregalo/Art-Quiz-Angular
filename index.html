@@ -13,6 +13,8 @@
     <!-- Main app script -->
     <script src="javascripts/app.js"></script>
     <script src="javascripts/controllers/factList.js"></script>
+    <script src="javascripts/controllers/quiz.js"></script>
+    <script src="javascripts/factories/quizMetrics.js"></script>
   </head>
   <body>
     <div class="container">
@@ -20,6 +22,7 @@
         <h1>ART QUIZ APP</h1>
         <h2>WHAT YOU KNOW ABOUT ART</h2>
       </div>
+      <!-- Artist List Controller -->
       <div ng-controller="factlistCtrl as list"
         ng-hide="list.quizActive">
         <form class="form-inline well well-sm clearfix">
@@ -84,6 +87,10 @@
             </div>
           </div>
         </div>
+      </div>
+
+      <!-- Quiz Controller -->
+      <div ng-controller="quizCtrl as quiz">
       </div>
     </div>
   </body>
