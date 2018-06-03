@@ -16,14 +16,18 @@
 
       var numQuestionsAnswered = 0;
 
-      function setActiveQuestion () {
-        var breakOut = false;
-        var quizLength = DataService.quizQuestions.length - 1;
-        while (!breakOut) {
-          self.activeQuestion = self.activeQuestion < quizLength ? ++self.activeQuestion : 0;
-          if (DataService.quizQuestions[self.activeQuestion].selected === null) {
-            breakOut = true;
+      function setActiveQuestion (index) {
+        if(index === undefined) {
+          var breakOut = false;
+          var quizLength = DataService.quizQuestions.length - 1;
+          while (!breakOut) {
+            self.activeQuestion = self.activeQuestion < quizLength ? ++self.activeQuestion : 0;
+            if (DataService.quizQuestions[self.activeQuestion].selected === null) {
+              breakOut = true;
+            }
           }
+        } else {
+          self.activeQuestion = index;
         }
       }
 
