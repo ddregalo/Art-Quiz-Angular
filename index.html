@@ -125,6 +125,26 @@
             </div>
           </div>
         </div>
+        <div class="row">
+          <h4 style="text-align:left;">QUESTION</h4>
+          <div class="well well-sm">
+            <h4>{{quiz.activeQuestion + 1
+              + ". "
+              + quiz.dataService.quizQuestions[quiz.activeQuestion].text}}
+            </h4>
+            <div class="row">
+              <div class="col-sm-6" ng-repeat="answer in quiz.dataService.quizQuestions[quiz.activeQuestion].possibilities">
+                <h4 class="answer">
+                  {{answer.answer}}
+                </h4>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="btn btn-info"
+          ng-click="quiz.questionAnswered()">
+          CONTINUE
+        </button>
       </div>
     </div>
   </body>

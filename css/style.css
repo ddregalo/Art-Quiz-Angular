@@ -32,3 +32,16 @@ p {
 .well-image {
   width: 100%;
 }
+
+.answer {
+  padding: 15px 20px;
+  border-radius: 10px;
+  border: 1px solid #bbb;
+  background-color: lavender;
+}
+
+.answer:hover {
+  cursor: pointer;
+  background-color: purple;
+  color: white;
+}

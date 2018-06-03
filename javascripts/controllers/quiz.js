@@ -9,5 +9,12 @@
       var self = this;
       self.quizMetrics = quizMetrics;
       self.dataService = DataService;
+      self.activeQuestion = 0;
+      self.questionAnswered = questionAnswered;
+
+      function questionAnswered() {
+        
+      }
     }
+
 })();
