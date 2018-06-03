@@ -49,10 +49,13 @@ p {
   padding: 20px;
 }
 
+.image-selected {
+  border: 3px solid #56afbc;
+}
+
 .image-answer img {
   width: 100%;
   height: auto;
-  border-radius: 10px;
 }
 
 .answer:hover {
