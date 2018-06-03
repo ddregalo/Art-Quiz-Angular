@@ -72,6 +72,26 @@
         selected: null,
         correct: null
       },
+      {
+        type: "image",
+        text: "Which of the following paintings was created by Pablo Picasso?",
+        possibilities: [
+          {
+            answer: "https://guyhepner.com/wp-content/uploads/2015/04/jean-michel-basquiat-cabeza-prints-and-multiples-serigraph-screenprint-zoom_550_740-483x650.jpg"
+          },
+          {
+            answer: "https://www.invaluable.com/blog/wp-content/uploads/2017/10/Invaluable-Roy-Lichtenstein-Hero.jpg"
+          },
+          {
+            answer: "https://i0.wp.com/www.guggenheim.org/wp-content/uploads/1914/01/48.1172.280_web.jpg?w=870&zoom=2"
+          },
+          {
+            answer: "https://www.pablopicasso.org/images/paintings/girl-with-mandolin.jpg"
+          }
+        ],
+        selected: null,
+        correct: null
+      }
     ];
 
     var artFacts = [
