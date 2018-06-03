@@ -12,6 +12,7 @@
       self.activeQuestion = 0;
       self.setActiveQuestion = setActiveQuestion;
       self.questionAnswered = questionAnswered;
+      self.selectAnswer = selectAnswer;
 
       var numQuestionsAnswered = 0;
 
@@ -35,6 +36,10 @@
           }
         }
         self.setActiveQuestion();
+      }
+
+      function selectAnswer(answerIndex) {
+        DataService.quizQuestions[self.activeQuestion].selected = answerIndex;
       }
     }
 
