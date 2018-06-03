@@ -3,23 +3,25 @@
     .module("artQuiz")
     .controller("factlistCtrl", factListController);
 
-    function factListController() {
+    factListController.$inject = ['quizMetrics'];
+
+    function factListController(quizMetrics) {
 
       var self = this;
 
+      self.quizMetrics = quizMetrics;
       self.data = artFacts;
       self.activeArtist = {};
       self.changeActiveArtist = changeActiveArtist;
       self.activateQuiz = activateQuiz;
       self.search = "";
-      self.quizActive = false;
 
       function changeActiveArtist(artist) {
         self.activeArtist = artist;
       }
 
       function activateQuiz(artist) {
-        self.quizActive = true;
+        quizMetrics.changeState(true);
       }
     }
   var artFacts = [
