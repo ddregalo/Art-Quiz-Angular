@@ -12,7 +12,7 @@
       return quizObj;
 
       function changeState(state) {
-        quizObj.quizActive = state
+        quizObj.quizActive = state;
       }
     }
 

@@ -20,7 +20,7 @@
         self.activeArtist = artist;
       }
 
-      function activateQuiz(artist) {
+      function activateQuiz() {
         quizMetrics.changeState(true);
       }
     }

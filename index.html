@@ -88,9 +88,10 @@
           </div>
         </div>
       </div>
-
-      <!-- Quiz Controller -->
-      <div ng-controller="quizCtrl as quiz">
+    </div>
+    <div class="container">
+      <div ng-controller="quizCtrl as quiz" ng-show="quiz.quizMetrics.quizActive">
+        <h1>QUIZ</h1>
       </div>
     </div>
   </body>
