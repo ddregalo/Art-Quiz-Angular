@@ -15,12 +15,13 @@
     <script src="javascripts/controllers/factList.js"></script>
     <script src="javascripts/controllers/quiz.js"></script>
     <script src="javascripts/factories/quizMetrics.js"></script>
+    <script src="javascripts/factories/dataService.js"></script>
   </head>
   <body>
     <div class="container">
       <div class="page-header">
-        <h1>ART QUIZ APP</h1>
-        <h2>WHAT YOU KNOW ABOUT ART</h2>
+        <h1>ART QUIZ</h1>
+        <h2>WHAT DO YOU KNOW ABOUT ART?</h2>
       </div>
       <!-- Artist List Controller -->
       <div ng-controller="factlistCtrl as list"
@@ -91,7 +92,22 @@
     </div>
     <div class="container">
       <div ng-controller="quizCtrl as quiz" ng-show="quiz.quizMetrics.quizActive">
-        <h1>QUIZ</h1>
+        <div class="row">
+          <div class="col-xs-8">
+            <h4>PROGRESS</h4>
+            <div class="btn-toolbar">
+              <button class="btn"
+                ng-repeat="question in quiz.dataService.quizQuestions"
+                ng-class="{'btn-info': question.selected !== null,
+                  'btn-danger': question.selected === null}">
+                <span class="glyphicon"
+                  ng-class="{'glyphicon-pencil': question.selected !== null,
+                    'glyphicon-question-sign': question.selected === null}">
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </body>
