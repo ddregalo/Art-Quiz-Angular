@@ -13,6 +13,8 @@
       self.setActiveQuestion = setActiveQuestion;
       self.questionAnswered = questionAnswered;
       self.selectAnswer = selectAnswer;
+      self.error = false;
+      self.finalize = false;
 
       var numQuestionsAnswered = 0;
 
@@ -22,6 +24,9 @@
           var quizLength = DataService.quizQuestions.length - 1;
           while (!breakOut) {
             self.activeQuestion = self.activeQuestion < quizLength ? ++self.activeQuestion : 0;
+            if (self.activeQuestion === 0) {
+              self.error = true;
+            }
             if (DataService.quizQuestions[self.activeQuestion].selected === null) {
               breakOut = true;
             }
@@ -37,6 +42,15 @@
           numQuestionsAnswered ++;
           if(numQuestionsAnswered >= quizLength) {
             // finalize quiz
+            for (let i = 0; i < quizLength; i++) {
+              if(DataService.quizQuestions[i].selelcted === null) {
+                setActiveQuestion(i);
+                return;
+              }
+            }
+            self.error = false;
+            self.finalize = true;
+            return;
           }
         }
         self.setActiveQuestion();

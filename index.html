@@ -127,6 +127,13 @@
           </div>
         </div>
         <div class="row">
+          <div class="alert alert-danger"
+            ng-show="quiz.error">
+            You haven't answered all the questions yet...
+            <button class="close" ng-click="quiz.error = false">
+              &times
+            </button>
+          </div>
           <h4 style="text-align:left;">QUESTION</h4>
           <div class="well well-sm">
             <h4>{{quiz.activeQuestion + 1
