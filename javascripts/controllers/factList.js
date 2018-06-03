@@ -10,10 +10,16 @@
       self.data = artFacts;
       self.activeArtist = {};
       self.changeActiveArtist = changeActiveArtist;
+      self.activateQuiz = activateQuiz;
       self.search = "";
+      self.quizActive = false;
 
       function changeActiveArtist(artist) {
         self.activeArtist = artist;
+      }
+
+      function activateQuiz(artist) {
+        self.quizActive = true;
       }
     }
   var artFacts = [

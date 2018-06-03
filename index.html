@@ -20,12 +20,17 @@
         <h1>ART QUIZ APP</h1>
         <h2>WHAT YOU KNOW ABOUT ART</h2>
       </div>
-      <div ng-controller="factlistCtrl as list">
+      <div ng-controller="factlistCtrl as list"
+        ng-hide="list.quizActive">
         <form class="form-inline well well-sm clearfix">
           <span class="glyphicon glyphicon-search"></span>
           <input type="text" placeholder="Search artist..."
             class="form-control"
             ng-model="list.search">
+          <button class="btn btn-warning pull-right"
+            ng-click="list.activateQuiz()">
+            <strong>START QUIZ</strong>
+          </button>
         </form>
         <div class="row">
           <div class="col-sm-6" ng-repeat="fact in list.data | filter:list.search">
