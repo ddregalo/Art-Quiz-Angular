@@ -3,6 +3,7 @@
     .module("artQuiz")
     .controller("quizCtrl", QuizController);
 
+
     QuizController.$inject = ['quizMetrics', 'DataService'];
 
     function QuizController(quizMetrics, DataService){
@@ -38,18 +39,22 @@
 
       function questionAnswered() {
         var quizLength = DataService.quizQuestions.length;
-        if(DataService.quizQuestions[self.activeQuestion.selected !== null]) {
+        if(DataService.quizQuestions[self.activeQuestion.selected] !== null) {
           numQuestionsAnswered ++;
           if(numQuestionsAnswered >= quizLength) {
             // finalize quiz
+            // var quizLength = DataService.quizQuestions.length;
             for (let i = 0; i < quizLength; i++) {
-              if(DataService.quizQuestions[i].selelcted === null) {
+              if(DataService.quizQuestions[i].selected === null) {
                 setActiveQuestion(i);
                 return;
               }
             }
-            self.error = false;
+            console.log(`1 ${self.finalize}`)
             self.finalize = true;
+            self.error = false;
+            console.log(`1 ${self.finalize}`)
+
             return;
           }
         }
@@ -60,5 +65,4 @@
         DataService.quizQuestions[self.activeQuestion].selected = answerIndex;
       }
     }
-
 })();

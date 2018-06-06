@@ -5,6 +5,8 @@
     <title>DD ART QUIZ</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -36,6 +38,7 @@
             <strong>START QUIZ</strong>
           </button>
         </form>
+
         <div class="row">
           <div class="col-sm-6" ng-repeat="fact in list.data | filter:list.search">
             <div class="well well-sm">
@@ -158,14 +161,31 @@
                   ng-click="quiz.selectAnswer($index)">
                   <img ng-src="{{answer.answer}}">
                 </div>
+
               </div>
             </div>
           </div>
+
         </div>
         <button class="btn btn-info"
           ng-click="quiz.questionAnswered()">
           CONTINUE
         </button>
+
+        <div class="well well-sm" ng-show="quiz.finalize">
+
+          <div class="row">
+            <div class="col-xs-12">
+              <h3>Confirm and submit final answers?</h3>
+              <button class="btn btn-info" ng-click="quiz.finalizeAnswers()">
+                YES
+              </button>
+              <button class="btn btn-info" ng-click="quiz.finalize = false">
+                NO
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </body>
