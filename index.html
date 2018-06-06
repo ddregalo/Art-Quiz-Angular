@@ -139,8 +139,8 @@
             </button>
           </div>
           <!-- Questions -->
-          <h4 style="text-align:left;">QUESTION</h4>
           <div class="well well-sm" ng-hide="quiz.finalize">
+            <h4 style="text-align:left;">QUESTION</h4>
             <h4>{{quiz.activeQuestion + 1
               + ". "
               + quiz.dataService.quizQuestions[quiz.activeQuestion].text}}
@@ -166,14 +166,12 @@
 
               </div>
             </div>
+            <button class="btn btn-info"
+              ng-click="quiz.questionAnswered()">
+              CONTINUE
+            </button>
           </div>
-
         </div>
-        <button class="btn btn-info"
-          ng-click="quiz.questionAnswered()">
-          CONTINUE
-        </button>
-
         <div class="well well-sm" ng-show="quiz.finalize">
 
           <div class="row">

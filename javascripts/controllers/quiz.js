@@ -14,6 +14,7 @@
       self.setActiveQuestion = setActiveQuestion;
       self.questionAnswered = questionAnswered;
       self.selectAnswer = selectAnswer;
+      self.finalizeAnswers - finalizeAnswers;
       self.error = false;
       self.finalize = false;
 
@@ -63,6 +64,15 @@
 
       function selectAnswer(answerIndex) {
         DataService.quizQuestions[self.activeQuestion].selected = answerIndex;
+      }
+
+      function finalizeAnswers() {
+        self.finalize = false;
+        numQuestionsAnswered = 0;
+        self.activeQuestion = 0;
+        quizMetrics.markQuiz();
+        quizMetrics.changeState("quiz", false);
+        quizMetrics.changeState("results", true);
       }
     }
 })();

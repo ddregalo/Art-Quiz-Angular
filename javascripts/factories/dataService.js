@@ -6,10 +6,13 @@
     function DataFactory() {
       var dataObj = {
         artFacts: artFacts,
-        quizQuestions: quizQuestions
+        quizQuestions: quizQuestions,
+        correctAnswers: correctAnswers
       };
       return dataObj;
     }
+
+    var correctAnswers = [1, 2, 0, 3];
 
     var quizQuestions = [
       {
