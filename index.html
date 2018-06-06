@@ -93,6 +93,7 @@
         </div>
       </div>
     </div>
+    <!-- Art Quiz Controller -->
     <div class="container">
       <div ng-controller="quizCtrl as quiz" ng-show="quiz.quizMetrics.quizActive">
         <div class="row">
@@ -137,8 +138,9 @@
               &times
             </button>
           </div>
+          <!-- Questions -->
           <h4 style="text-align:left;">QUESTION</h4>
-          <div class="well well-sm">
+          <div class="well well-sm" ng-hide="quiz.finalize">
             <h4>{{quiz.activeQuestion + 1
               + ". "
               + quiz.dataService.quizQuestions[quiz.activeQuestion].text}}
@@ -177,10 +179,10 @@
           <div class="row">
             <div class="col-xs-12">
               <h3>Confirm and submit final answers?</h3>
-              <button class="btn btn-info" ng-click="quiz.finalizeAnswers()">
+              <button class="btn btn-success" ng-click="quiz.finalizeAnswers()">
                 YES
               </button>
-              <button class="btn btn-info" ng-click="quiz.finalize = false">
+              <button class="btn btn-danger" ng-click="quiz.finalize = false">
                 NO
               </button>
             </div>
