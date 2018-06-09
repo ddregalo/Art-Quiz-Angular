@@ -14,6 +14,7 @@
       qz.getAnswerClass = getAnswerClass;
       qz.setActiveQuestion = setActiveQuestion;
       qz.calculatePercentage = calculatePercentage;
+      qz.reset = reset;
 
       function getAnswerClass(answerIndex) {
           if(answerIndex === quizMetrics.correctAnswers[qz.activeQuestion]) {
@@ -29,6 +30,16 @@
 
       function calculatePercentage() {
         return qz.quizMetrics.numQuestionsCorrect / qz.dataService.quizQuestions.length * 100
+      }
+
+      function reset() {
+        qz.quizMetrics.changeState("results", false);
+        qz.quizMetrics.numCorrect = 0;
+        for(var i = 0; i < qz.dataService.quizQuestions.length; i++) {
+          var data = qz.dataService.quizQuestions[i];
+          data.selected = null;
+          data.correct = null;
+        }
       }
     }
 })();
