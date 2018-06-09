@@ -16,6 +16,7 @@
     <script src="javascripts/app.js"></script>
     <script src="javascripts/controllers/factList.js"></script>
     <script src="javascripts/controllers/quiz.js"></script>
+    <script src="javascripts/controllers/results.js"></script>
     <script src="javascripts/factories/quizMetrics.js"></script>
     <script src="javascripts/factories/dataService.js"></script>
   </head>
@@ -27,7 +28,7 @@
       </div>
       <!-- Artist List Controller -->
       <div ng-controller="factlistCtrl as list"
-        ng-hide="list.quizMetrics.quizActive">
+        ng-hide="list.quizMetrics.quizActive || list.quizMetrics.resultsActive">
         <form class="form-inline well well-sm clearfix">
           <span class="glyphicon glyphicon-search"></span>
           <input type="text" placeholder="Search artist..."
@@ -173,7 +174,6 @@
           </div>
         </div>
         <div class="well well-sm" ng-show="quiz.finalize">
-
           <div class="row">
             <div class="col-xs-12">
               <h3>Confirm and submit final answers?</h3>
@@ -188,5 +188,11 @@
         </div>
       </div>
     </div>
+    <!-- Results Controller -->
+    <!-- <div class="container"> -->
+      <div ng-controller="resultsCtrl as results" ng-show="results.quizMetrics.resultsActive">
+        <h1>HELLO WORLD!</h1>
+      </div>
+    <!-- </div> -->
   </body>
 </html>

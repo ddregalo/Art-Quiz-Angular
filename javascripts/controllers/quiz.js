@@ -3,20 +3,19 @@
     .module("artQuiz")
     .controller("quizCtrl", QuizController);
 
-
     QuizController.$inject = ['quizMetrics', 'DataService'];
 
     function QuizController(quizMetrics, DataService){
-      var self = this;
-      self.quizMetrics = quizMetrics;
-      self.dataService = DataService;
-      self.activeQuestion = 0;
-      self.setActiveQuestion = setActiveQuestion;
-      self.questionAnswered = questionAnswered;
-      self.selectAnswer = selectAnswer;
-      self.finalizeAnswers - finalizeAnswers;
-      self.error = false;
-      self.finalize = false;
+      var qz = this;
+      qz.quizMetrics = quizMetrics;
+      qz.dataService = DataService;
+      qz.activeQuestion = 0;
+      qz.setActiveQuestion = setActiveQuestion;
+      qz.questionAnswered = questionAnswered;
+      qz.selectAnswer = selectAnswer;
+      qz.finalizeAnswers = finalizeAnswers;
+      qz.error = false;
+      qz.finalize = false;
 
       var numQuestionsAnswered = 0;
 
@@ -25,22 +24,22 @@
           var breakOut = false;
           var quizLength = DataService.quizQuestions.length - 1;
           while (!breakOut) {
-            self.activeQuestion = self.activeQuestion < quizLength ? ++self.activeQuestion : 0;
-            if (self.activeQuestion === 0) {
-              self.error = true;
+            qz.activeQuestion = qz.activeQuestion < quizLength ? ++qz.activeQuestion : 0;
+            if (qz.activeQuestion === 0) {
+              qz.error = true;
             }
-            if (DataService.quizQuestions[self.activeQuestion].selected === null) {
+            if (DataService.quizQuestions[qz.activeQuestion].selected === null) {
               breakOut = true;
             }
           }
         } else {
-          self.activeQuestion = index;
+          qz.activeQuestion = index;
         }
       }
 
       function questionAnswered() {
         var quizLength = DataService.quizQuestions.length;
-        if(DataService.quizQuestions[self.activeQuestion.selected] !== null) {
+        if(DataService.quizQuestions[qz.activeQuestion.selected] !== null) {
           numQuestionsAnswered ++;
           if(numQuestionsAnswered >= quizLength) {
             // finalize quiz
@@ -51,28 +50,28 @@
                 return;
               }
             }
-            console.log(`1 ${self.finalize}`)
-            self.finalize = true;
-            self.error = false;
-            console.log(`1 ${self.finalize}`)
+            console.log(`1 ${qz.finalize}`)
+            qz.finalize = true;
+            qz.error = false;
+            console.log(`1 ${qz.finalize}`)
 
             return;
           }
         }
-        self.setActiveQuestion();
+        qz.setActiveQuestion();
       }
 
       function selectAnswer(answerIndex) {
-        DataService.quizQuestions[self.activeQuestion].selected = answerIndex;
+        DataService.quizQuestions[qz.activeQuestion].selected = answerIndex;
       }
 
       function finalizeAnswers() {
-        self.finalize = false;
+        qz.quizMetrics.changeState("quiz", false);
+        qz.quizMetrics.changeState("results", true);
+        qz.quizMetrics.markQuiz();
+        qz.finalize = false;
         numQuestionsAnswered = 0;
-        self.activeQuestion = 0;
-        quizMetrics.markQuiz();
-        quizMetrics.changeState("quiz", false);
-        quizMetrics.changeState("results", true);
+        qz.activeQuestion = 0;
       }
     }
 })();
