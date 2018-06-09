@@ -3,11 +3,12 @@
     .module("artQuiz")
     .controller("resultsCtrl", resultsController);
 
-    resultsController.$inject = ['quizMetrics'];
+    resultsController.$inject = ['quizMetrics', 'DataService'];
 
-    function resultsController(quizMetrics) {
-      var self = this;
+    function resultsController(quizMetrics, DataService) {
+      var qz = this;
 
-      self.quizMetrics = quizMetrics;
+      qz.quizMetrics = quizMetrics;
+      qz.dataService = DataService;
     }
 })();
