@@ -218,10 +218,14 @@
                   <p>INCORRECT</p>
                 </div>
             </div>
+            <div class="row">
+              <div class="col-xs-12 top-buffer">
+                <h3>YOUR SCORE: {{results.quizMetrics.numQuestionsCorrect}} / {{results.dataService.quizQuestions.length}}</h3>
+                <h3><strong>{{results.calculatePercentage()}}%</strong></h3>
+              </div>
+            </div>
           </div>
         </div>
-
-
         <div class="row">
           <h3>QUESTIONS</h3>
           <div class="well well-sm">
@@ -253,10 +257,6 @@
             </div>
           </div>
         </div>
-
-
-
-
       </div>
   </body>
 </html>
