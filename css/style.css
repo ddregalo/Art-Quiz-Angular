@@ -48,6 +48,14 @@ p {
   padding: 20px;
 }
 
+.image-answer.bg-success {
+  border: 3px solid #5ea640;
+}
+
+.image-answer.bg-danger {
+  border: 3px solid #b74848;
+}
+
 .image-selected {
   border: 3px solid #56afbc;
 }
